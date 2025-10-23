@@ -7,18 +7,16 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-300: oklch(80.8% 0.114 19.571);
     --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-slate-300: oklch(86.9% 0.022 252.894);
     --color-gray-200: oklch(92.8% 0.006 264.531);
-    --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-900: oklch(21% 0.034 264.665);
-    --color-black: #000;
     --spacing: 0.25rem;
-    --container-sm: 24rem;
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
-    --font-weight-normal: 400;
     --font-weight-bold: 700;
+    --radius-xl: 0.75rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -172,9 +170,6 @@
   }
 }
 @layer utilities {
-  .mx-auto {
-    margin-inline: auto;
-  }
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
@@ -187,17 +182,14 @@
   .grid {
     display: grid;
   }
-  .table {
-    display: table;
-  }
   .h-5 {
     height: calc(var(--spacing) * 5);
   }
   .h-15 {
     height: calc(var(--spacing) * 15);
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
+  .h-50 {
+    height: calc(var(--spacing) * 50);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
@@ -208,20 +200,14 @@
   .w-full {
     width: 100%;
   }
-  .max-w-sm {
-    max-width: var(--container-sm);
-  }
-  .border-collapse {
-    border-collapse: collapse;
-  }
   .cursor-pointer {
     cursor: pointer;
   }
-  .resize {
-    resize: both;
-  }
   .appearance-none {
     appearance: none;
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -241,8 +227,8 @@
   .gap-3 {
     gap: calc(var(--spacing) * 3);
   }
-  .gap-5 {
-    gap: calc(var(--spacing) * 5);
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
   }
   .gap-10 {
     gap: calc(var(--spacing) * 10);
@@ -254,12 +240,8 @@
       margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
-  .space-y-8 {
-    :where(& > :not(:last-child)) {
-      --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 8) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-y-reverse)));
-    }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
   }
   .border {
     border-style: var(--tw-border-style);
@@ -268,23 +250,20 @@
   .border-blue-400 {
     border-color: var(--color-blue-400);
   }
-  .bg-gray-500 {
-    background-color: var(--color-gray-500);
-  }
   .bg-gray-900 {
     background-color: var(--color-gray-900);
   }
   .bg-slate-300 {
     background-color: var(--color-slate-300);
   }
+  .object-cover {
+    object-fit: cover;
+  }
   .p-1 {
     padding: calc(var(--spacing) * 1);
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
-  }
-  .p-4 {
-    padding: calc(var(--spacing) * 4);
   }
   .p-5 {
     padding: calc(var(--spacing) * 5);
@@ -297,28 +276,14 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
-  .font-normal {
-    --tw-font-weight: var(--font-weight-normal);
-    font-weight: var(--font-weight-normal);
-  }
-  .text-black {
-    color: var(--color-black);
-  }
   .text-gray-200 {
     color: var(--color-gray-200);
   }
-  .lowercase {
-    text-transform: lowercase;
+  .text-red-300 {
+    color: var(--color-red-300);
   }
   .uppercase {
     text-transform: uppercase;
-  }
-  .underline {
-    text-decoration-line: underline;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .focus\:ring-1 {
     &:focus {
@@ -337,6 +302,21 @@
       outline-style: none;
     }
   }
+  .sm\:grid-cols-2 {
+    @media (width >= 40rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .lg\:grid-cols-3 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .xl\:grid-cols-4 {
+    @media (width >= 80rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
 }
 @property --tw-space-y-reverse {
   syntax: "*";
@@ -351,11 +331,6 @@
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
-}
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }
 @property --tw-shadow {
   syntax: "*";
@@ -428,7 +403,6 @@
       --tw-space-y-reverse: 0;
       --tw-border-style: solid;
       --tw-font-weight: initial;
-      --tw-outline-style: solid;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
       --tw-shadow-alpha: 100%;
