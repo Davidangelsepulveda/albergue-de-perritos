@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./main.js" defer></script>
+    <link rel="stylesheet" href="./output.css" />
+
+    <title>PERRITOS</title>
+  </head>
+  <body class="bg-slate-300 flex gap-10">
+    <div class="w-full p-5 mt-8">
+      <header class="flex justify-center items-center p-2">
+        <div class="uppercase font-bold">
+          <img src="./img/dog-api-logo.svg" alt="" class="h-15" />
+
+          PERRITOS
+        </div>
+        <div
+          class="menu-icon w-6 h-5 flex flex-col justify-between p-1 box-content"
+        >
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </header>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold">Perritos Aleatorios</h2>
+        <div class="contenedor-aleatorios grid grid-cols-2 gap-3"></div>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold">Perritos por Raza</h2>
+        <div class="flex">
+          <select
+            class="w-1/2 bg-gray-900 text-gray-200 border border-blue-400 p-2 appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-400"
+            name="raza"
+          >
+            <option value="pitbull" selected>pitbull</option>
+            <option value="labrador">labrador</option>
+            <option value="pastor">pastor</option>
+          </select>
+        </div>
+        <div class="contenedor-raza grid grid-cols-2 gap-3"></div>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold">Perritos por Subraza</h2>
+        <div class="grid grid-cols-2 gap-3">
+          <select
+            class="bg-gray-900 text-gray-200 border border-blue-400 p-2 appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-400"
+            name="subraza-1"
+          >
+            <option value="cocker" selected>cocker</option>
+            <option value="otro">otro</option>
+          </select>
+          <select
+            class="bg-gray-900 text-gray-200 border border-blue-400 p-2 appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-400"
+            name="subraza-2"
+          >
+            <option value="spaniel" selected>spaniel</option>
+            <option value="otro">otro</option>
+          </select>
+        </div>
+        <div class="contenedor-subraza grid grid-cols-2 gap-3"></div>
+      </section>
+    </div>
+  </body>
+</html>
