@@ -28,7 +28,9 @@
 
       <section class="space-y-3">
         <h2 class="text-lg font-bold">Perritos Aleatorios</h2>
-        <div class="contenedor-aleatorios grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+        <div
+          class="contenedor-aleatorios grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        ></div>
       </section>
 
       <section class="space-y-3">
@@ -46,25 +48,23 @@
         <div class="contenedor-raza grid grid-cols-2 gap-3"></div>
       </section>
 
-      <section class="space-y-3">
+      <section class="space-y-3 bg-gray-800 rounded-2xl shadow-lg">
         <h2 class="text-lg font-bold">Perritos por Subraza</h2>
+
         <div class="grid grid-cols-2 gap-3">
           <select
-            class="bg-gray-900 text-gray-200 border border-blue-400 p-2 appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-400"
-            name="subraza-1"
-          >
-            <option value="cocker" selected>cocker</option>
-            <option value="otro">otro</option>
-          </select>
+            id="raza"
+            class="bg-gray-900 text-gray-200 border border-blue-400 p-2 rounded"
+          ></select>
           <select
-            class="bg-gray-900 text-gray-200 border border-blue-400 p-2 appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-400"
-            name="subraza-2"
-          >
-            <option value="spaniel" selected>spaniel</option>
-            <option value="otro">otro</option>
-          </select>
+            id="subraza"
+            class="bg-gray-900 text-gray-200 border border-blue-400 p-2 rounded"
+          ></select>
         </div>
-        <div class="contenedor-subraza grid grid-cols-2 gap-3"></div>
+
+        <div
+          class="contenedor-subraza grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        ></div>
       </section>
     </div>
   </body>
